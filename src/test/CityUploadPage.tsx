@@ -274,6 +274,9 @@ const CityUploadPage = () => {
                   onChange={handleHotelInputChange}
                   placeholder="Hotel Name"
                   required
+                  autoComplete="off"
+                  autoCorrect="off"
+
                 />
               
               
@@ -285,6 +288,8 @@ const CityUploadPage = () => {
                   onChange={handleHotelInputChange}
                   required
                   placeholder="Night Package"
+                   autoComplete="off"
+                  autoCorrect="off"
                 />
               
               
@@ -296,6 +301,8 @@ const CityUploadPage = () => {
                   onChange={handleHotelInputChange}
                   placeholder="Price"
                   required
+                   autoComplete="off"
+                  autoCorrect="off"
                 />
               
              
@@ -306,6 +313,8 @@ const CityUploadPage = () => {
                   onChange={handleHotelInputChange}
                   placeholder="Address"
                   required
+                   autoComplete="off"
+                  autoCorrect="off"
                 />
              
            
@@ -316,6 +325,8 @@ const CityUploadPage = () => {
                   onChange={handleHotelInputChange}
                   required
                   placeholder="Departure"
+                   autoComplete="off"
+                  autoCorrect="off"
                 />
               
              
@@ -326,6 +337,8 @@ const CityUploadPage = () => {
                   onChange={handleHotelInputChange}
                   required
                   placeholder="Arrival"
+                   autoComplete="off"
+                  autoCorrect="off"
                 />
              <div style={{display:"flex", flexDirection:"column", gap:"5px" }}>
              <label style={{color:"yellow", marginTop:"10px", marginLeft:"5px"}}>Hotel Images:</label>
@@ -414,12 +427,12 @@ const CityUploadPage = () => {
                       <TableCell
                         sx={{ border: "3px solid white", textAlign: "center" }}
                       >
-                        <Typography>{hotel.address}</Typography>
+                        <Typography sx={{color:"white"}}>{hotel.address}</Typography>
                       </TableCell>
                       <TableCell
                         sx={{ border: "3px solid white", textAlign: "center" }}
                       >
-                        <Typography>{hotel.hotelname}</Typography>
+                        <Typography sx={{color:"white"}}>{hotel.hotelname}</Typography>
                       </TableCell>
                       <TableCell
                         sx={{ border: "3px solid white", textAlign: "center" }}
@@ -437,22 +450,22 @@ const CityUploadPage = () => {
                       <TableCell
                         sx={{ border: "3px solid white", textAlign: "center" }}
                       >
-                        <Typography>{hotel.nightpackage}</Typography>
+                        <Typography sx={{color:"white"}}>{hotel.nightpackage}</Typography>
                       </TableCell>
                       <TableCell
                         sx={{ border: "3px solid white", textAlign: "center" }}
                       >
-                        <Typography>{hotel.price}</Typography>
+                        <Typography sx={{color:"white"}}>{hotel.price}</Typography>
                       </TableCell>
                       <TableCell
                         sx={{ border: "3px solid white", textAlign: "center" }}
                       >
-                        <Typography>{hotel.departure}</Typography>
+                        <Typography sx={{color:"white"}}>{hotel.departure}</Typography>
                       </TableCell>
                       <TableCell
                         sx={{ border: "3px solid white", textAlign: "center" }}
                       >
-                        <Typography>{hotel.arrival}</Typography>
+                        <Typography sx={{color:"white"}}>{hotel.arrival}</Typography>
                       </TableCell>
                       <TableCell
                         sx={{
