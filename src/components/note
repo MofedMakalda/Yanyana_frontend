@@ -1,0 +1,40 @@
+
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          width: "100%",
+        }}
+      ></Box>
+      <Box
+        sx={{
+          backgroundColor: "#003366", // Dark blue background
+          color: "white",
+          textAlign: "center",
+          padding: "20px", // Add some padding
+          position: "relative",
+          bottom: 0,
+          width: "100%", // Full width
+        }}
+      >
+        <Typography sx={{ fontWeight: "10px" }} variant="body1">
+          <h3>Yanyana Group</h3>
+        </Typography>
+        <Typography variant="body2" sx={{ marginTop: "10px" }}>
+          YanYana.group@gmail.com
+        </Typography>
+        <Typography variant="body2">
+          ©2023 by Yanyana Group. Website Created by Mofed Makalda{" "}
+        </Typography>
+        <Box sx={{ marginTop: "10px" }}>
+        <Link 
+          href="https://www.instagram.com/yourusername" // Replace with your Instagram account link
+          target="_blank" // Open link in a new tab
+          sx={{ color: "white", textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "center" }}
+        >
+          <InstagramIcon sx={{ marginRight: "5px" }} /> {/* Icon with some space on the right */}
+          <Typography variant="body2">Follow us on Instagram</Typography>
+        </Link>
+      </Box>
+      </Box>
