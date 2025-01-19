@@ -217,7 +217,6 @@ import {
 // import logo from "../assets/RapidaLogo.png";
 import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
-import { BASE_URL } from "../constants/baseUrl";
 import { useAuth } from "../context/Auth/AuthContext";
 import TextFieldWithFocusShadow from "./components/TextFieldWithShadow";
 import background from "../assets/blue.png";

@@ -219,7 +219,6 @@ import {
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
-import { BASE_URL } from "../constants/baseUrl";
 import TextFieldWithFocusShadow from "./components/TextFieldWithShadow";
 import { useAuth } from "../context/Auth/AuthContext";
 
