@@ -565,6 +565,8 @@ export const CruiseManagement = () => {
                 type="date"
                 value={date ? date.toISOString().substring(0, 10) : ""}
                 onChange={(e) => setDate(new Date(e.target.value))}
+                autoComplete="off"
+
               />
             </td>
             <td style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:10 ,padding: "8px", border: "1px solid #ddd" }}>
@@ -577,6 +579,8 @@ export const CruiseManagement = () => {
               <input
               style={{padding:10}}
                 type="date"
+                autoComplete="off"
+
                 value={
                   dateDetail ? dateDetail.toISOString().substring(0, 10) : ""
                 }
@@ -588,6 +592,8 @@ export const CruiseManagement = () => {
                   type="file"
                   accept="image/*"
                   onChange={(e) => setImages(Array.from(e.target.files || []))}
+                  autoComplete="off"
+
                   // multiple
                 />
               <button
@@ -680,7 +686,7 @@ export const CruiseManagement = () => {
                     {detail.images.map((img) => (
                       <img
                         key={img}
-                        src={`http://localhost:3002/uploads/${img}`}
+                        src={`https://yanyana-c668fa5fd9ac.herokuapp.com/uploads/${img}`}
                         alt={detail.cruisename}
                         style={{ width: "50px", height: "50px", margin: "5px" }}
                       />

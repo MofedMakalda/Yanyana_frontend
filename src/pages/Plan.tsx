@@ -521,7 +521,7 @@ export const Plan = () => {
     >
       <Box
         sx={{
-          width: "70%",
+          width: "100%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-start",

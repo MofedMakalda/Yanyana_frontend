@@ -423,6 +423,8 @@ const CruiseUploadPage: React.FC = () => {
                             required
                             fullWidth
                             sx={{ marginBottom: 2 }}
+                            autoComplete="off"
+
                         />
 
                         <FormControl fullWidth required sx={{ marginBottom: 2 }}>
@@ -447,6 +449,8 @@ const CruiseUploadPage: React.FC = () => {
                             required
                             fullWidth
                             sx={{ marginBottom: 2 }}
+                            autoComplete="off"
+
                         />
 
                         <Box  sx={{ marginBottom: 2, display:"flex"}}>

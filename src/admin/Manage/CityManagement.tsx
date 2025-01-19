@@ -501,6 +501,7 @@ export const CityManagement = () => {
                 placeholder="City Name"
                 value={cityname}
                 onChange={(e) => setCityname(e.target.value)}
+                autoComplete="off"
               />
             </td>
             <td style={{ padding: "8px", border: "1px solid #ddd" }}>
@@ -510,6 +511,8 @@ export const CityManagement = () => {
                 accept="image/*"
                 onChange={(e) => setCityImage(Array.from(e.target.files || []))}
                 multiple
+                autoComplete="off"
+
               />
             </td>
             <td style={{ padding: "8px", border: "1px solid #ddd" }}>
@@ -517,6 +520,8 @@ export const CityManagement = () => {
                 placeholder="Description"
                 value={discription}
                 onChange={(e) => setDiscription(e.target.value)}
+                autoComplete="off"
+
               />
             </td>
             <td style={{ padding: "8px", border: "1px solid #ddd" }}>
@@ -526,24 +531,32 @@ export const CityManagement = () => {
                 placeholder="Hotel Name"
                 value={hotelname}
                 onChange={(e) => setHotelname(e.target.value)}
+                autoComplete="off"
+
               />
               <input
                 type="text"
                 placeholder="Night Package"
                 value={nightpackage}
                 onChange={(e) => setNightpackage(e.target.value)}
+                autoComplete="off"
+
               />
               <input
                 type="text"
                 placeholder="Price"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
+                autoComplete="off"
+
               />
               <input
                 type="text"
                 placeholder="Address"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
+                autoComplete="off"
+
               />
               <input
                 style={{ border: "1px solid" }}
@@ -553,6 +566,8 @@ export const CityManagement = () => {
                   setHotelImages(Array.from(e.target.files || []))
                 }
                 multiple
+                autoComplete="off"
+
               />
               <button onClick={handleAddHotel} style={{ marginTop: "8px" }}>
                 Add Hotel

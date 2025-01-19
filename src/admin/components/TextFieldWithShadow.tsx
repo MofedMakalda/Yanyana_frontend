@@ -42,6 +42,7 @@ const TextFieldWithFocusShadow = forwardRef<HTMLInputElement, TextFieldWithFocus
           placeholder={placeholder}
           ref={ref}
           name={name}
+          autoComplete="off"
         />
       </>
     );

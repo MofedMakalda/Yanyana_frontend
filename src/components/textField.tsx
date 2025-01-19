@@ -28,6 +28,7 @@ export const TextFieldComponent: React.FC<TextFieldProps> = ({
       name={name}
       value={value}
       required
+      autoComplete="off"
       inputProps={{
         ...(type === "file" && multiple ? { multiple: true } : {}),
       }}
