@@ -217,7 +217,7 @@ const BungalowDetails: React.FC = () => {
 
   const fetchBungalows = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/bungalows`);
+      const response = await fetch(`https://yanyana-c668fa5fd9ac.herokuapp.com/bungalows`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }

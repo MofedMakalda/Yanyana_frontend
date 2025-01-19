@@ -361,7 +361,7 @@ export const CruiseDetails = () => {
   useEffect(() => {
     const fetchCruises = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/cruise/${month}`);
+        const response = await fetch(`https://yanyana-c668fa5fd9ac.herokuapp.com/cruise/${month}`);
         if (!response.ok) {
           if (response.status === 404) {
             setData([]);
