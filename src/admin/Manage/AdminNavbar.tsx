@@ -46,7 +46,7 @@ const AdminNavbar: React.FC = () => {
           </Button>
           <Button
             component={Link}
-            to="admin/cruise-upload"
+            to="admin/city-upload"
             color="inherit"
             sx={{ marginRight: 2 }}
           >
@@ -62,7 +62,7 @@ const AdminNavbar: React.FC = () => {
           </Button>
           <Button
             component={Link}
-            to="admin/plan"
+            to="admin/bungalows"
             color="inherit"
             sx={{ marginRight: 2 }}
           >
