@@ -247,12 +247,16 @@ const CityUploadPage = () => {
                   onChange={handleCityInputChange}
                   placeholder="City Name"
                   required
+                   autoComplete="off"
+                  autoCorrect="off"
                 />         
                 <textarea
                   name="description"
                   value={cityData.description}
                   onChange={handleCityInputChange}
                   placeholder="Description"
+                   autoComplete="off"
+                  autoCorrect="off"
                 />     
               <div style={{display:"flex", flexDirection:"column", gap:"5px" }}>
                 <label style={{color:"yellow", marginTop:"10px", marginLeft:"5px"}}>City Image:</label>
