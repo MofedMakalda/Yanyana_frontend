@@ -479,7 +479,7 @@ export const Plan = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch(`${process.env.API_BASE_URL}/plans`, {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/plans`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -304,7 +304,7 @@ export const HotelDetails = () => {
   useEffect(() => {
     const fetchCityHotels = async () => {
       try {
-        const response = await fetch(`${process.env.API_BASE_URL}/cities/${cityname}/hotels`);
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/cities/${cityname}/hotels`);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }

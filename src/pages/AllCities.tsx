@@ -94,7 +94,7 @@ export const AllCities = () => {
 
   useEffect(() => {
     const fetchCities = async () => {
-      const response = await fetch(`${process.env.API_BASE_URL}/cities`);
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/cities`);
       if (!response.ok) {
         console.error("Something went wrong with getting the cities");
         return;
