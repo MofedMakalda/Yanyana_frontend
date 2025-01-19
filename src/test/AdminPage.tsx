@@ -194,7 +194,7 @@ const AdminPage = () => {
   // Fetch bungalows from server
   const fetchBungalows = async () => {
     try {
-      const response = await fetch("http://localhost:3002/bungalows");
+      const response = await fetch("https://yanyana-c668fa5fd9ac.herokuapp.com/bungalows");
       if (response.ok) {
         const data = await response.json();
         setBungalows(data);
@@ -225,7 +225,7 @@ const AdminPage = () => {
     bungalowImages.forEach((image) => formData.append("images", image));
 
     try {
-      const response = await fetch("http://localhost:3002/bungalows", {
+      const response = await fetch("https://yanyana-c668fa5fd9ac.herokuapp.com/bungalows", {
         method: "POST",
         body: formData,
       });
@@ -249,7 +249,7 @@ const AdminPage = () => {
   // Delete bungalow by ID
   const deleteBungalow = async (id: string) => {
     try {
-      const response = await fetch(`http://localhost:3002/bungalows/${id}`, {
+      const response = await fetch(`https://yanyana-c668fa5fd9ac.herokuapp.com/bungalows/${id}`, {
         method: "DELETE",
       });
 

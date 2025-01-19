@@ -129,7 +129,7 @@ const CityUploadPage = () => {
     });
 
     try {
-      const response = await fetch("http://localhost:3002/cities", {
+      const response = await fetch("http://localhost:3002https://yanyana-c668fa5fd9ac.herokuapp.com/cities", {
         method: "POST",
         body: formData,
       });
@@ -151,7 +151,7 @@ const CityUploadPage = () => {
 
   const fetchCities = async () => {
     try {
-      const response = await fetch("http://localhost:3002/cities");
+      const response = await fetch("https://yanyana-c668fa5fd9ac.herokuapp.com/cities");
       if (response.ok) {
         const data = await response.json();
         setCities(data);
@@ -170,7 +170,7 @@ const CityUploadPage = () => {
   const deleteHotel = async (cityId: string, hotelId: string) => {
     try {
       const response = await fetch(
-        `http://localhost:3002/cities/${cityId}/hotels/${hotelId}`,
+        `https://yanyana-c668fa5fd9ac.herokuapp.com/cities/${cityId}/hotels/${hotelId}`,
         {
           method: "DELETE",
         }
@@ -189,7 +189,7 @@ const CityUploadPage = () => {
 
   const deleteCity = async (cityId: string) => {
     try {
-      const response = await fetch(`http://localhost:3002/cities/${cityId}`, {
+      const response = await fetch(`https://yanyana-c668fa5fd9ac.herokuapp.com/cities/${cityId}`, {
         method: "DELETE",
       });
 

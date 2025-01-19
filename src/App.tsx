@@ -118,7 +118,6 @@ const Layout = () => {
       <Routes>
         {/* Admin Routes */}
         <Route path="/admin/login" element={<Login />} />
-        <Route path="/admin/register" element={<Register />} />
         {/* Public Routes */}
         <Route path="/" element={<HomePage />} />
         <Route path="/cruise" element={<Cruises />} />
@@ -130,6 +129,7 @@ const Layout = () => {
         <Route path="/contact" element={<ContactPage/>} />
         {/* Protected Admin Routes */}
         <Route element={<ProtectedRoute />}>
+        <Route path="/admin/register" element={<Register />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/cities" element={<CityManagement />} />
           <Route path="/admin/cruises" element={<CruiseManagement />} />
