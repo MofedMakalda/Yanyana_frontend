@@ -58,7 +58,7 @@
 //       </Typography>
 //       {data.map((city) => (
 //         <MultiActionAreaCard
-          
+
 //           key={city.cityname} // Using cityname as the key for uniqueness
 //           title={city.cityname.toUpperCase()} // Make the title uppercase
 //           image={city.cityImage} // Constructing the full URL
@@ -128,7 +128,7 @@
 //       </Typography>
 //       {data.map((city) => (
 //         <MultiActionAreaCard
-          
+
 //           key={city.cityname} // Using cityname as the key for uniqueness
 //           title={city.cityname.toUpperCase()} // Make the title uppercase
 //           image={city.cityImage} // Constructing the full URL
@@ -138,7 +138,6 @@
 //     </Box>
 //   );
 // };
-
 
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -166,7 +165,8 @@ export const AllCities = () => {
 
   useEffect(() => {
     const fetchCities = async () => {
-      const apiUrl = `https://yanyana-c668fa5fd9ac.herokuapp.com/cities`;
+      // const apiUrl = `https://yanyana-c668fa5fd9ac.herokuapp.com/cities`;
+      const apiUrl = `https://13.61.23.75:5000`;
 
       // Log the API URL to verify it's correct
       console.log("Fetching cities from API URL:", apiUrl);
@@ -209,7 +209,12 @@ export const AllCities = () => {
     >
       <Typography
         variant="h4"
-        sx={{ fontFamily: "initial", fontWeight: "bold", marginBottom: 3, mt: 3 }}
+        sx={{
+          fontFamily: "initial",
+          fontWeight: "bold",
+          marginBottom: 3,
+          mt: 3,
+        }}
       >
         Explore Cities
       </Typography>
