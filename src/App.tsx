@@ -1,5 +1,3 @@
-
-
 // import { Routes, Route, BrowserRouter, Navigate, Outlet } from "react-router-dom";
 // import { useAuth } from "./context/Auth/AuthContext"; // Ensure the correct import
 
@@ -68,8 +66,14 @@
 
 // export default App;
 
-
-import { Routes, Route, BrowserRouter, Navigate, Outlet, useLocation } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  BrowserRouter,
+  Navigate,
+  Outlet,
+  useLocation,
+} from "react-router-dom";
 import { useAuth } from "./context/Auth/AuthContext"; // Ensure the correct import
 
 import { HomePage } from "./pages/HomePage";
@@ -103,25 +107,27 @@ const App = () => {
     </AuthProvider>
   );
 };
-
+// Done
 const Layout = () => {
   const location = useLocation();
 
   // Check if the current path is "/admin" or starts with "/admin", excluding "/admin/login"
-  const isAdminRoute = location.pathname.startsWith("/admin") && location.pathname !== "/admin/login";
+  const isAdminRoute =
+    location.pathname.startsWith("/admin") &&
+    location.pathname !== "/admin/login";
 
   return (
     <>
       {/* Render Navbar only if not on admin routes and not on the /admin/login route */}
       {!isAdminRoute && location.pathname !== "/admin/login" && <Navbar />}
-      
+
       {/* Render AdminNavbar only if on admin routes but not on the /admin/login route */}
       {isAdminRoute && <AdminNavbar />}
-      
+
       <Routes>
         {/* Admin Routes */}
         <Route path="/admin/login" element={<Login />} />
-        
+
         {/* Public Routes */}
         <Route path="/" element={<HomePage />} />
         <Route path="/cruise" element={<Cruises />} />
@@ -131,7 +137,7 @@ const Layout = () => {
         <Route path="/cities/:cityname/hotels" element={<HotelDetails />} />
         <Route path="/plan" element={<Plan />} />
         <Route path="/contact" element={<ContactPage />} />
-        
+
         {/* Protected Admin Routes */}
         <Route element={<ProtectedRoute />}>
           <Route path="/admin/register" element={<Register />} />
@@ -148,7 +154,6 @@ const Layout = () => {
     </>
   );
 };
-
 
 const ProtectedRoute = () => {
   const { isAuthenticated } = useAuth();
