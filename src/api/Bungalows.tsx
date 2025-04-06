@@ -1,8 +1,6 @@
-
 // import { useEffect, useState } from "react";
 // import { Box, Card, CardMedia, CardContent, Typography, Button, Dialog, DialogContent, DialogActions, useMediaQuery } from "@mui/material";
 // import ImageSlider from "../components/ImageSlider";
-
 
 // interface Bungalow {
 //   location: string;
@@ -197,9 +195,19 @@
 // export default BungalowDetails;
 
 import { useEffect, useState } from "react";
-import { Box, Card, CardMedia, CardContent, Typography, Button, Dialog, DialogContent, DialogActions, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardMedia,
+  CardContent,
+  Typography,
+  Button,
+  Dialog,
+  DialogContent,
+  DialogActions,
+  useMediaQuery,
+} from "@mui/material";
 import ImageSlider from "../components/ImageSlider";
-
 
 interface Bungalow {
   location: string;
@@ -216,8 +224,10 @@ const BungalowDetails: React.FC = () => {
   const isDesktop = useMediaQuery("(min-width:900px)");
 
   const fetchBungalows = async () => {
+    const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/bungalows`;
+
     try {
-      const response = await fetch(`https://yanyana-c668fa5fd9ac.herokuapp.com/bungalows`);
+      const response = await fetch(apiUrl);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -285,12 +295,15 @@ const BungalowDetails: React.FC = () => {
                 borderRadius: 2,
                 overflow: "hidden",
                 transition: "transform 0.3s ease",
-                '&:hover': { transform: "scale(1.02)" },
+                "&:hover": { transform: "scale(1.02)" },
               }}
             >
               <CardMedia
                 component="img"
-                sx={{ width: isDesktop ? "40%" : "100%", height: isDesktop ? "350px" : "250px" }}
+                sx={{
+                  width: isDesktop ? "40%" : "100%",
+                  height: isDesktop ? "350px" : "250px",
+                }}
                 image={bungalow.bungalowImages[0]}
                 alt={bungalow.location}
               />
@@ -340,12 +353,14 @@ const BungalowDetails: React.FC = () => {
                     alignSelf: isDesktop ? "flex-start" : "center",
                     backgroundColor: "#003366",
                     color: "white",
-                    '&:hover': { backgroundColor: "#002244" },
+                    "&:hover": { backgroundColor: "#002244" },
                     fontSize: "14px",
                     padding: "8px 16px",
                     borderRadius: 20,
                   }}
-                  onClick={() => handleClickOpen(bungalow, bungalow.bungalowImages)}
+                  onClick={() =>
+                    handleClickOpen(bungalow, bungalow.bungalowImages)
+                  }
                 >
                   View Details
                 </Button>

@@ -14,8 +14,6 @@
 // import TextFieldWithFocusShadow from "./components/TextFieldWithShadow";
 // import { useAuth } from "../context/Auth/AuthContext";
 
-
-
 // const Register = () => {
 //   const [error , setError] = useState("")
 //   const firstNameRef = useRef<HTMLInputElement>(null);
@@ -64,7 +62,6 @@
 
 //     console.log(token)
 //   };
-
 
 //   const navigate = useNavigate();
 //   return (
@@ -207,13 +204,7 @@
 // };
 
 // export default Register;
-import {
-  Box,
-  Button,
-  IconButton,
-  Typography,
-
-} from "@mui/material";
+import { Box, Button, IconButton, Typography } from "@mui/material";
 // import LogoGold from "../assets/goldLine.png";
 // import logo from "../assets/RapidaLogo.png";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -222,57 +213,56 @@ import { useRef, useState } from "react";
 import TextFieldWithFocusShadow from "./components/TextFieldWithShadow";
 import { useAuth } from "../context/Auth/AuthContext";
 
-
-
 const Register = () => {
-  const [error , setError] = useState("")
+  const [error, setError] = useState("");
   const firstNameRef = useRef<HTMLInputElement>(null);
   const lastNameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
-  const {login}= useAuth();
+  const { login } = useAuth();
 
-  const onSubmit =  async () => {
+  const onSubmit = async () => {
+    const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/user/register`;
+
     const firstname = firstNameRef.current?.value;
     const lastname = lastNameRef.current?.value;
     const email = emailRef.current?.value;
     const password = passwordRef.current?.value;
 
-    if(!firstname || !lastname || !email || !password){
-      setError ('Check Submitted Data!')
-      return ;
+    if (!firstname || !lastname || !email || !password) {
+      setError("Check Submitted Data!");
+      return;
     }
 
-    const response = await fetch (`https://yanyana-c668fa5fd9ac.herokuapp.com/user/register`,{
-      method:"POST",
-      headers:{
-        'Content-Type':'application/json'
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-      body:JSON.stringify({
+      body: JSON.stringify({
         firstname,
         lastname,
         email,
-        password
+        password,
       }),
     });
 
-    if(!response.ok){
-      setError("Error, Check Your Credentials Again!")
-      return ;
+    if (!response.ok) {
+      setError("Error, Check Your Credentials Again!");
+      return;
     }
     const token = await response.json();
 
-    if(!token){
-      setError("Incorrect Token")
+    if (!token) {
+      setError("Incorrect Token");
       return;
     }
-    login(email, token)
-    navigate('/')
+    login(email, token);
+    navigate("/");
 
-    console.log(token)
+    console.log(token);
   };
-
 
   const navigate = useNavigate();
   return (
@@ -352,26 +342,44 @@ const Register = () => {
             <TextFieldWithFocusShadow
               placeholder={"Enter Full Name..."}
               type={"string"}
-              ref={firstNameRef} name="fullname"            />
+              ref={firstNameRef}
+              name="fullname"
+            />
             <TextFieldWithFocusShadow
               placeholder={"Enter Full Name..."}
               type={"string"}
-              ref={lastNameRef} name="fullname"            />
+              ref={lastNameRef}
+              name="fullname"
+            />
             <TextFieldWithFocusShadow
               placeholder={"Enter Your Email..."}
               type={"string"}
-              ref={emailRef} name="email"            />
+              ref={emailRef}
+              name="email"
+            />
             <TextFieldWithFocusShadow
               placeholder={"Enter Your Password..."}
               type={"password"}
-              ref={passwordRef} name="password"            />
+              ref={passwordRef}
+              name="password"
+            />
             <Button
               sx={{ color: "black", backgroundColor: "#c2992e", width: "100%" }}
               onClick={onSubmit}
             >
               Sign Up
             </Button>{" "}
-            {error&& <Typography sx={{color:"red", fontWeight:"bold", fontFamily:"monospace"}}>{error}</Typography> }
+            {error && (
+              <Typography
+                sx={{
+                  color: "red",
+                  fontWeight: "bold",
+                  fontFamily: "monospace",
+                }}
+              >
+                {error}
+              </Typography>
+            )}
             <Typography>
               Already registered?{" "}
               <Typography component="span">

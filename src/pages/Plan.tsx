@@ -478,17 +478,16 @@ export const Plan = () => {
   };
 
   const handleSubmit = async () => {
+    const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/plans`;
+
     try {
-      const response = await fetch(
-        `${process.env.REACT_APP_API_BASE_URL}/plans`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData), // Send the form data
-        }
-      );
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData), // Send the form data
+      });
 
       if (!response.ok) {
         // Show an alert for HTTP errors

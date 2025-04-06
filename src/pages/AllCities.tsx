@@ -165,7 +165,6 @@ export const AllCities = () => {
 
   useEffect(() => {
     const fetchCities = async () => {
-      //  const apiUrl = `https://yanyana-c668fa5fd9ac.herokuapp.com/cities`;
       const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/cities`;
 
       // Log the API URL to verify it's correct

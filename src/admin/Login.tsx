@@ -55,7 +55,6 @@
 //     console.log(token);
 //   };
 
-  
 //   const navigate = useNavigate();
 //   return (
 //     <Box>
@@ -92,7 +91,7 @@
 //           alignItems: "center",
 //         }}
 //       >
-     
+
 //         <Box
 //           sx={{
 //             height: {
@@ -208,11 +207,7 @@
 
 // export default Login;
 
-import {
-  Box,
-  Button,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 // import LogoGold from "../assets/goldLine.png";
 // import logo from "../assets/RapidaLogo.png";
 import { useNavigate } from "react-router-dom";
@@ -229,6 +224,8 @@ const Login = () => {
   const { login } = useAuth();
 
   const onSubmit = async () => {
+    const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/user/login`;
+
     const email = emailRef.current?.value;
     const password = passwordRef.current?.value;
 
@@ -237,7 +234,7 @@ const Login = () => {
       return;
     }
 
-    const response = await fetch(`https://yanyana-c668fa5fd9ac.herokuapp.com/user/login`, {
+    const response = await fetch(apiUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -264,7 +261,6 @@ const Login = () => {
     console.log(token);
   };
 
-  
   const navigate = useNavigate();
   return (
     <Box>
@@ -283,7 +279,8 @@ const Login = () => {
         <Typography
           sx={{ fontSize: "40px", fontFamily: "monospace", color: "white" }}
         >
-        Welcome To Admin Panel </Typography>
+          Welcome To Admin Panel{" "}
+        </Typography>
         <Box />
       </Box>
 
@@ -292,7 +289,7 @@ const Login = () => {
           backgroundImage: `url(${background})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          backgroundPosition:"center",
+          backgroundPosition: "center",
           height: "100vh",
           color: "black",
           display: "flex",
@@ -301,7 +298,6 @@ const Login = () => {
           alignItems: "center",
         }}
       >
-     
         <Box
           sx={{
             height: {
@@ -416,4 +412,3 @@ const Login = () => {
 };
 
 export default Login;
-

@@ -25,7 +25,7 @@
 //   const [openDialog, setOpenDialog] = useState(false);
 //   const [dialogTitle, setDialogTitle] = useState("");
 //   const [dialogBody, setDialogBody] = useState<string[]>([]);
-  
+
 //   const handleMoreImagesClick = (
 //     hotelName: string,
 //     images: string[],
@@ -39,8 +39,7 @@
 //   const handleCloseDialog = () => {
 //     setOpenDialog(false);
 //   };
-  
-  
+
 //   useEffect(() => {
 //     const fetchCityHotels = async () => {
 //       try {
@@ -64,7 +63,6 @@
 
 //   if (loading) return <div>Loading...</div>;
 //   if (error) return <div>Error: {error}</div>;
-
 
 //   return (
 //     <div
@@ -161,7 +159,7 @@
 //                       width: { md: "500px", xs: "320px" },
 //                       height: { md: "500px", xs: "220px" },
 //                     }}
-              
+
 //                     // onClick={handleImageClick}
 //                   />
 //                 )}
@@ -180,7 +178,7 @@
 //                           md:"80px",
 //                           xs:"40px"
 //                         },
-                        
+
 //                         borderRadius:"20px"
 //                       }}
 //                     >
@@ -229,8 +227,7 @@
 //           >
 //             {dialogTitle}
 //           </Typography>
-          
-       
+
 //         </DialogTitle>
 //         <DialogContent style={{ width: "100%", height: "100%", padding: 0 }}>
 //           <div style={{ width: "100%" }}>
@@ -255,8 +252,6 @@
 //     </div>
 //   );
 // };
-
-
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -285,12 +280,8 @@ export const HotelDetails = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [dialogTitle, setDialogTitle] = useState("");
   const [dialogBody, setDialogBody] = useState<string[]>([]);
-  
-  const handleMoreImagesClick = (
-    hotelName: string,
-    images: string[],
 
-  ) => {
+  const handleMoreImagesClick = (hotelName: string, images: string[]) => {
     setDialogTitle(hotelName);
     setDialogBody(images);
     setOpenDialog(true);
@@ -299,12 +290,13 @@ export const HotelDetails = () => {
   const handleCloseDialog = () => {
     setOpenDialog(false);
   };
-  
-  
+
   useEffect(() => {
     const fetchCityHotels = async () => {
+      const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/cities/${cityname}/hotels`;
+
       try {
-        const response = await fetch(`https://yanyana-c668fa5fd9ac.herokuapp.com/cities/${cityname}/hotels`);
+        const response = await fetch(apiUrl);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -323,12 +315,18 @@ export const HotelDetails = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
-
   return (
     <div
-      style={{ display: "flex", flexDirection: "column", alignItems: "center",minHeight:"100vh" }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        minHeight: "100vh",
+      }}
     >
-      <h1 style={{fontFamily:"initial", marginTop:"10px"}}>Hotels in {cityname}</h1>
+      <h1 style={{ fontFamily: "initial", marginTop: "10px" }}>
+        Hotels in {cityname}
+      </h1>
 
       {hotels.length > 0 ? (
         <Box
@@ -337,7 +335,7 @@ export const HotelDetails = () => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            alignItems:"center",
+            alignItems: "center",
             position: "relative",
           }}
         >
@@ -350,7 +348,7 @@ export const HotelDetails = () => {
                 display: "flex",
                 flexDirection: { md: "row-reverse", xs: "column" },
                 height: { xs: "auto", md: "400px" },
-                borderRadius:"20px",
+                borderRadius: "20px",
                 boxShadow: "18px 18px 8px rgba(0, 51, 102, 0.2)",
               }}
             >
@@ -419,31 +417,33 @@ export const HotelDetails = () => {
                       width: { md: "500px", xs: "320px" },
                       height: { md: "500px", xs: "220px" },
                     }}
-              
+
                     // onClick={handleImageClick}
                   />
                 )}
-                    <Button
-                      onClick={()=>handleMoreImagesClick(hotel.hotelname ,hotel.hotelImages)}
-                      sx={{
-                        position: "absolute",
-                        bottom: "15px",
-                        backgroundColor: "black",
-                        color: "white",
-                        width:{
-                          md:"250px",
-                          xs:"150px"
-                        },
-                        height:{
-                          md:"80px",
-                          xs:"40px"
-                        },
-                        
-                        borderRadius:"20px"
-                      }}
-                    >
-                      More Images
-                    </Button>
+                <Button
+                  onClick={() =>
+                    handleMoreImagesClick(hotel.hotelname, hotel.hotelImages)
+                  }
+                  sx={{
+                    position: "absolute",
+                    bottom: "15px",
+                    backgroundColor: "black",
+                    color: "white",
+                    width: {
+                      md: "250px",
+                      xs: "150px",
+                    },
+                    height: {
+                      md: "80px",
+                      xs: "40px",
+                    },
+
+                    borderRadius: "20px",
+                  }}
+                >
+                  More Images
+                </Button>
               </Box>
             </Card>
           ))}
@@ -451,7 +451,7 @@ export const HotelDetails = () => {
       ) : (
         <p>No Hotels Found For This City.</p>
       )}
-          <Dialog
+      <Dialog
         fullWidth
         sx={{
           "& .MuiDialog-paper": {
@@ -487,8 +487,6 @@ export const HotelDetails = () => {
           >
             {dialogTitle}
           </Typography>
-          
-       
         </DialogTitle>
         <DialogContent style={{ width: "100%", height: "100%", padding: 0 }}>
           <div style={{ width: "100%" }}>
@@ -513,6 +511,3 @@ export const HotelDetails = () => {
     </div>
   );
 };
-
-
-

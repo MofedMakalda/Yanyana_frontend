@@ -1,5 +1,3 @@
-
-
 // import { useEffect, useState } from "react";
 // import {
 //   Button,
@@ -103,7 +101,7 @@
 //               color: "#003366",
 //               mt:2,
 //               mb:2
-              
+
 //             }}
 //             variant="h4"
 //           >
@@ -311,9 +309,6 @@
 //   );
 // };
 
-
-
-
 import { useEffect, useState } from "react";
 import {
   Button,
@@ -357,11 +352,11 @@ export const CruiseDetails = () => {
   const [dialogPlaces, setDialogPlaces] = useState("");
   const [dialogDate, setDialogDate] = useState("");
   const [dialogBody, setDialogBody] = useState<string[]>([]);
-
   useEffect(() => {
     const fetchCruises = async () => {
+      const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/cruise/${month}`;
       try {
-        const response = await fetch(`https://yanyana-c668fa5fd9ac.herokuapp.com/cruise/${month}`);
+        const response = await fetch(apiUrl);
         if (!response.ok) {
           if (response.status === 404) {
             setData([]);
@@ -407,7 +402,9 @@ export const CruiseDetails = () => {
 
   return (
     <div style={{ minHeight: "100vh", width: "100%", background: "#f4f4f9" }}>
-      <Box sx={{ display: "flex", flexDirection: "column", alignItems:"center" }}>
+      <Box
+        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      >
         {data.length > 0 ? (
           <Typography
             sx={{
@@ -415,9 +412,8 @@ export const CruiseDetails = () => {
               fontFamily: "'Poppins', sans-serif",
               fontWeight: "bold",
               color: "#003366",
-              mt:2,
-              mb:2
-              
+              mt: 2,
+              mb: 2,
             }}
             variant="h4"
           >
@@ -440,7 +436,7 @@ export const CruiseDetails = () => {
                 overflow: "hidden",
                 height: { md: "250px" },
                 boxShadow: "18px 18px 8px rgba(0, 51, 102, 0.2)",
-                width:"80%"
+                width: "80%",
               }}
             >
               <CardMedia
@@ -595,7 +591,7 @@ export const CruiseDetails = () => {
             backgroundColor: "#f4f4f9",
           }}
         >
-          <Box >
+          <Box>
             <ImageSlider imageUrls={dialogBody} />
           </Box>
         </DialogContent>
@@ -624,5 +620,3 @@ export const CruiseDetails = () => {
     </div>
   );
 };
-
-

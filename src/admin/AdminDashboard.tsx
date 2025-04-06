@@ -1,4 +1,3 @@
-
 import { Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
@@ -17,7 +16,7 @@ import { AdminButton } from "./components/Button";
 import { useAuth } from "../context/Auth/AuthContext";
 
 export const AdminDashboard = () => {
-  const { firstname, lastname, isAuthenticated, username,logout } = useAuth(); // Use AuthContext
+  const { firstname, lastname, isAuthenticated, username, logout } = useAuth(); // Use AuthContext
   const navigate = useNavigate();
 
   const handleManageCities = () => {
@@ -26,7 +25,7 @@ export const AdminDashboard = () => {
 
   const handleManageCruises = () => {
     navigate("/admin/cruise-upload");
-  }
+  };
   const handleManagePlans = () => {
     navigate("/admin/plan");
   };
@@ -39,9 +38,6 @@ export const AdminDashboard = () => {
   };
 
   return (
-    
-    
-    
     <Box
       sx={{
         height: "100vh",
@@ -85,13 +81,19 @@ export const AdminDashboard = () => {
             }}
           />
         </Box>
-        {isAuthenticated?(
-          <h6 style={{marginTop:"10px"}}> {firstname} {lastname} </h6>
-        ):<Typography>Not Logged in</Typography>}
-        {isAuthenticated?(
-           <p style={{ marginTop: 0 }}>{username}</p>
-        ):<Typography>No Email </Typography>}
-        
+        {isAuthenticated ? (
+          <h6 style={{ marginTop: "10px" }}>
+            {" "}
+            {firstname} {lastname}{" "}
+          </h6>
+        ) : (
+          <Typography>Not Logged in</Typography>
+        )}
+        {isAuthenticated ? (
+          <p style={{ marginTop: 0 }}>{username}</p>
+        ) : (
+          <Typography>No Email </Typography>
+        )}
 
         <Box sx={{ display: "flex", flexDirection: "column", width: "90%" }}>
           <Box
@@ -312,4 +314,3 @@ export const AdminDashboard = () => {
     </Box>
   );
 };
-
