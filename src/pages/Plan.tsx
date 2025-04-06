@@ -162,7 +162,7 @@
 //                 flex: 1,
 //                 height: "100%",
 //                 width: "100%",
-                
+
 //                 "& .MuiOutlinedInput-root": {
 //                   borderRadius: "8px",
 //                   backgroundColor: "white",
@@ -399,12 +399,12 @@
 //             variant="contained"
 //             sx={{
 //               mt: 2,
-              
+
 //                 fontSize: {
 //                   xs: "10px",
 //                   md: "20px",
 //                 },
-              
+
 //               backgroundColor: "black",
 //               "&:hover": {
 //                 backgroundColor: "grey",
@@ -479,13 +479,16 @@ export const Plan = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/plans`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData), // Send the form data
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API_BASE_URL}/plans`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData), // Send the form data
+        }
+      );
 
       if (!response.ok) {
         // Show an alert for HTTP errors
@@ -584,7 +587,7 @@ export const Plan = () => {
                 flex: 1,
                 height: "100%",
                 width: "100%",
-                
+
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "8px",
                   backgroundColor: "white",
@@ -739,10 +742,12 @@ export const Plan = () => {
               }}
             >
               <Select
-                sx={{fontSize: {
-                  xs: "10px",
-                  md: "20px",
-                },}}
+                sx={{
+                  fontSize: {
+                    xs: "10px",
+                    md: "20px",
+                  },
+                }}
                 value={formData.countryCode}
                 onChange={(event) => handleCountryChange(event.target.value)}
                 displayEmpty
@@ -821,12 +826,12 @@ export const Plan = () => {
             variant="contained"
             sx={{
               mt: 2,
-              
-                fontSize: {
-                  xs: "10px",
-                  md: "20px",
-                },
-              
+
+              fontSize: {
+                xs: "10px",
+                md: "20px",
+              },
+
               backgroundColor: "black",
               "&:hover": {
                 backgroundColor: "grey",
