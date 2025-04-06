@@ -166,7 +166,7 @@ export const AllCities = () => {
   useEffect(() => {
     const fetchCities = async () => {
       //  const apiUrl = `https://yanyana-c668fa5fd9ac.herokuapp.com/cities`;
-      const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/cities`;
+      const apiUrl = `${process.env.VITE_API_BASE_URL}/cities`;
 
       // Log the API URL to verify it's correct
       console.log("Fetching cities from API URL:", apiUrl);
